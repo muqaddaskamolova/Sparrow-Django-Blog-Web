@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+
+
+{% include 'components/_section_intro.html' %}
+  <!-- Info Section
+   ================================================== -->
+ {% include 'components/_section_info.html' %}
+
+  <!-- Works Section
+   ================================================== -->
+ {% include 'components/_section_works.html' %}
+  <!-- Journal Section
+   ================================================== -->
+
+{% include 'components/_section_journal.html' %}
+
+{% endblock main %}

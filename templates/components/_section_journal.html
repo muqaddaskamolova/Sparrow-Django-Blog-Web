@@ -1,0 +1,43 @@
+ <section id="journal">
+
+    <div class="row">
+      <div class="twelve columns align-center">
+        <h1>Our latest posts and blogs</h1>
+      </div>
+    </div>
+
+    <div class="blog-entries">
+{% for post in posts %}
+      <!-- Entry -->
+      <article class="row entry">
+
+        <div class="entry-header">
+
+          <div class="permalink">
+            <a href=" "><i class="fa fa-link"></i></a>
+          </div>
+
+          <div class="ten columns entry-title pull-right">
+              <h3><a href="">{{ post.title }}<br> </a>
+
+            </h3>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="ten columns offset-2 post-content">
+          <p>{{ post.content|truncatewords:30 }}<br> {{ post.created_at }}
+            <a class="more-link" href="{{ post.get_absolute_url }}">Read More<i class="fa fa-arrow-circle-o-right"></i></a></p>
+        </div>
+
+      </article> <!-- Entry End -->
+{% endfor %}
+      <!-- Entry -->
+
+
+    </div> <!-- Entries End -->
+
+  </section> <!-- Journal Section End-->

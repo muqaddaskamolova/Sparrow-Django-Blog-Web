@@ -1,0 +1,62 @@
+ {% load static %}
+
+
+    <div class="row">
+
+      <div class="twelve columns">
+
+        <div class="logo">
+          <a href="index.html"><img alt="" src="{% static 'blog/images/logo.png' %}"></a>
+        </div>
+
+        <nav id="nav-wrap">
+
+          <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+          <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+          <ul id="nav" class="nav">
+
+            <li class="current"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about_dev' %}">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="styles.html">Features</a></li>
+            <li><span><a href="blog.html">Categories</a></span>
+              <ul>
+                {% for category in categories %}
+                <li><a href="{% url 'category' category.id %}">{{ category.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li><span><a href="portfolio-index.html">Portfolio</a></span>
+              <ul>
+                  <li><a href="{% url 'my_page' %}">My Page</a></li>
+                 <li><a href="portfolio-index.html">Add Post</a></li>
+                <li><a href="portfolio-index.html">Add Portfolio</a></li>
+              </ul>
+            </li>
+
+             <li><span><a href="portfolio-index.html">Registration</a></span>
+              <ul>
+                 <li><a href="{% url 'login' %}">Sign in</a></li>
+                <li><a href="{% url 'register' %}">Sign up</a></li>
+                 <li><a href="{% url 'logout' %}">Log out</a></li>
+              </ul>
+            </li>
+
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-danger" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" style=" font-weight:bold;">
+                           WELCOME!  {{request.user.username }}
+                        </a>
+                    </li>
+                   {% endif %}
+
+          </ul> <!-- end #nav -->
+
+        </nav> <!-- end #nav-wrap -->
+
+      </div>
+
+    </div>
+
